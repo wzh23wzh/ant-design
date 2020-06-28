@@ -91,11 +91,9 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <button
+          <a
             class="ant-pagination-item-link"
             disabled=""
-            tabindex="-1"
-            type="button"
           >
             <span
               aria-label="left"
@@ -117,7 +115,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
                 />
               </svg>
             </span>
-          </button>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -133,11 +131,9 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <button
+          <a
             class="ant-pagination-item-link"
             disabled=""
-            tabindex="-1"
-            type="button"
           >
             <span
               aria-label="right"
@@ -159,7 +155,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
                 />
               </svg>
             </span>
-          </button>
+          </a>
         </li>
       </ul>
     </div>
@@ -238,11 +234,9 @@ exports[`Table.pagination renders pagination correctly 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <button
+          <a
             class="ant-pagination-item-link"
             disabled=""
-            tabindex="-1"
-            type="button"
           >
             <span
               aria-label="left"
@@ -264,7 +258,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                 />
               </svg>
             </span>
-          </button>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -290,10 +284,8 @@ exports[`Table.pagination renders pagination correctly 1`] = `
           tabindex="0"
           title="Next Page"
         >
-          <button
+          <a
             class="ant-pagination-item-link"
-            tabindex="-1"
-            type="button"
           >
             <span
               aria-label="right"
@@ -315,7 +307,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                 />
               </svg>
             </span>
-          </button>
+          </a>
         </li>
       </ul>
     </div>
@@ -414,11 +406,9 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <button
+          <a
             class="ant-pagination-item-link"
             disabled=""
-            tabindex="-1"
-            type="button"
           >
             <span
               aria-label="left"
@@ -440,7 +430,7 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
                 />
               </svg>
             </span>
-          </button>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -456,11 +446,9 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <button
+          <a
             class="ant-pagination-item-link"
             disabled=""
-            tabindex="-1"
-            type="button"
           >
             <span
               aria-label="right"
@@ -482,7 +470,7 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
                 />
               </svg>
             </span>
-          </button>
+          </a>
         </li>
       </ul>
     </div>

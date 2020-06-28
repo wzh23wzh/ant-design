@@ -1,4 +1,5 @@
 import * as React from 'react';
+import omit from 'omit.js';
 import classNames from 'classnames';
 import FieldForm, { List } from 'rc-field-form';
 import { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
@@ -7,7 +8,7 @@ import { ColProps } from '../grid/col';
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import { FormContext } from './context';
 import { FormLabelAlign } from './interface';
-import useForm, { FormInstance } from './hooks/useForm';
+import { useForm, FormInstance } from './util';
 import SizeContext, { SizeType, SizeContextProvider } from '../config-provider/SizeContext';
 
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
@@ -30,24 +31,21 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
   const contextSize = React.useContext(SizeContext);
   const { getPrefixCls, direction }: ConfigConsumerProps = React.useContext(ConfigContext);
 
-  const { name } = props;
-
   const {
-    prefixCls: customizePrefixCls,
-    className = '',
-    size = contextSize,
     form,
     colon,
+    name,
     labelAlign,
     labelCol,
     wrapperCol,
+    prefixCls: customizePrefixCls,
     hideRequiredMark,
+    className = '',
     layout = 'horizontal',
+    size = contextSize,
     scrollToFirstError,
     onFinishFailed,
-    ...restFormProps
   } = props;
-
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   const formClassName = classNames(
@@ -61,9 +59,20 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
     className,
   );
 
+  const formProps = omit(props, [
+    'prefixCls',
+    'className',
+    'layout',
+    'hideRequiredMark',
+    'wrapperCol',
+    'labelAlign',
+    'labelCol',
+    'colon',
+    'scrollToFirstError',
+  ]);
+
   const [wrapForm] = useForm(form);
-  const { __INTERNAL__ } = wrapForm;
-  __INTERNAL__.name = name;
+  wrapForm.__INTERNAL__.name = name;
 
   const formContextValue = React.useMemo(
     () => ({
@@ -73,7 +82,6 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
       wrapperCol,
       vertical: layout === 'vertical',
       colon,
-      itemRef: __INTERNAL__.itemRef,
     }),
     [name, labelAlign, labelCol, wrapperCol, layout, colon],
   );
@@ -92,10 +100,12 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
 
   return (
     <SizeContextProvider size={size}>
-      <FormContext.Provider value={formContextValue}>
+      <FormContext.Provider
+        value={formContextValue}
+      >
         <FieldForm
           id={name}
-          {...restFormProps}
+          {...formProps}
           onFinishFailed={onInternalFinishFailed}
           form={wrapForm}
           className={formClassName}

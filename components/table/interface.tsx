@@ -8,8 +8,6 @@ import { CheckboxProps } from '../checkbox';
 import { PaginationProps } from '../pagination';
 import { Breakpoint } from '../_util/responsiveObserve';
 import { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
-import { tuple } from '../_util/type';
-// import { TableAction } from './Table';
 
 export { GetRowKey, ExpandableConfig };
 
@@ -39,9 +37,6 @@ export interface TableLocale {
 }
 
 export type SortOrder = 'descend' | 'ascend' | null;
-
-const TableActions = tuple('paginate', 'sort', 'filter');
-export type TableAction = typeof TableActions[number];
 
 export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
 
@@ -131,8 +126,6 @@ export type SelectionSelectFn<T> = (
 ) => void;
 
 export interface TableRowSelection<T> {
-  /** Keep the selection keys in list even the key not exist in `dataSource` anymore */
-  preserveSelectedRowKeys?: boolean;
   type?: RowSelectionType;
   selectedRowKeys?: Key[];
   onChange?: (selectedRowKeys: Key[], selectedRows: T[]) => void;
@@ -148,7 +141,6 @@ export interface TableRowSelection<T> {
   fixed?: boolean;
   columnWidth?: string | number;
   columnTitle?: string | React.ReactNode;
-  checkStrictly?: boolean;
   renderCell?: (
     value: boolean,
     record: T,
@@ -163,7 +155,6 @@ export type TransformColumns<RecordType> = (
 
 export interface TableCurrentDataSource<RecordType> {
   currentDataSource: RecordType[];
-  action: TableAction;
 }
 
 export interface SorterResult<RecordType> {

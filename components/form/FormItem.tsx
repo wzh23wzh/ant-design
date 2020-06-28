@@ -5,7 +5,6 @@ import { Field, FormInstance } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
 import FieldContext from 'rc-field-form/lib/FieldContext';
 import { Meta, NamePath } from 'rc-field-form/lib/interface';
-import { supportRef } from 'rc-util/lib/ref';
 import omit from 'omit.js';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
@@ -14,10 +13,8 @@ import devWarning from '../_util/devWarning';
 import FormItemLabel, { FormItemLabelProps } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
 import { FormContext, FormItemContext } from './context';
-import { toArray, getFieldId } from './util';
+import { toArray, getFieldId, useFrameState } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
-import useFrameState from './hooks/useFrameState';
-import useItemRef from './hooks/useItemRef';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = typeof ValidateStatuses[number];
@@ -49,7 +46,6 @@ export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, R
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
   required?: boolean;
-  hidden?: boolean;
 
   /** Auto passed by List render props. User should not use this. */
   fieldKey?: React.Key | React.Key[];
@@ -81,12 +77,11 @@ function FormItem(props: FormItemProps): React.ReactElement {
     label,
     trigger = 'onChange',
     validateTrigger,
-    hidden,
     ...restProps
   } = props;
   const destroyRef = React.useRef(false);
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const { name: formName } = React.useContext(FormContext);
+  const formContext = React.useContext(FormContext);
   const { updateItemErrors } = React.useContext(FormItemContext);
   const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
   const prevValidateStatusRef = React.useRef<ValidateStatus | undefined>(validateStatus);
@@ -102,6 +97,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
     }
   }
 
+  const { name: formName } = formContext;
   const hasName = hasValidName(name);
 
   // Cache Field NamePath
@@ -129,9 +125,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
           }));
         }
       };
-
-  // ===================== Children Ref =====================
-  const getItemRef = useItemRef();
 
   function renderLayout(
     baseChildren: React.ReactNode,
@@ -186,7 +179,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
       [`${prefixCls}-item-has-error-leave`]:
         !help && domErrorVisible && prevValidateStatusRef.current === 'error',
       [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
-      [`${prefixCls}-hidden`]: hidden,
     };
 
     // ======================= Children =======================
@@ -329,10 +321,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
           const childProps = { ...children.props, ...mergedControl };
           if (!childProps.id) {
             childProps.id = fieldId;
-          }
-
-          if (supportRef(children)) {
-            childProps.ref = getItemRef(mergedName, children);
           }
 
           // We should keep user origin event handler

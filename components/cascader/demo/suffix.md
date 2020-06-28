@@ -2,17 +2,17 @@
 order: 11
 debug: true
 title:
-  zh-CN: 自定义图标
-  en-US: Custom Icons
+  zh-CN: 后缀图标
+  en-US: Suffix
 ---
 
 ## zh-CN
 
-通过 `suffixIcon` 自定义选择框后缀图标，通过 `expandIcon` 自定义次级菜单展开图标。
+省市区级联。
 
 ## en-US
 
-Use `suffixIcon` to customize the selection box suffix icon, and use `expandIcon` to customize the current item expand icon.
+Cascade selection box for selecting province/city/district.
 
 ```jsx
 import { Cascader } from 'antd';
@@ -58,28 +58,21 @@ function onChange(value) {
 }
 
 ReactDOM.render(
-  <>
+  <div>
     <Cascader
       suffixIcon={<SmileOutlined />}
       options={options}
       onChange={onChange}
       placeholder="Please select"
     />
-    <br />
-    <br />
-    <Cascader suffixIcon="ab" options={options} onChange={onChange} placeholder="Please select" />
-    <br />
-    <br />
     <Cascader
-      expandIcon={<SmileOutlined />}
+      suffixIcon="ab"
+      style={{ marginTop: '1rem' }}
       options={options}
       onChange={onChange}
       placeholder="Please select"
     />
-    <br />
-    <br />
-    <Cascader expandIcon="ab" options={options} onChange={onChange} placeholder="Please select" />
-  </>,
+  </div>,
   mountNode,
 );
 ```

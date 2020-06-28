@@ -21,7 +21,6 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   className?: string;
   color?: LiteralUnion<PresetColorType | PresetStatusColorType, string>;
   closable?: boolean;
-  closeIcon?: React.ReactNode;
   visible?: boolean;
   onClose?: Function;
   style?: React.CSSProperties;
@@ -45,7 +44,6 @@ const InternalTag: React.ForwardRefRenderFunction<unknown, TagProps> = (
     icon,
     color,
     onClose,
-    closeIcon,
     closable = false,
     ...props
   },
@@ -100,16 +98,7 @@ const InternalTag: React.ForwardRefRenderFunction<unknown, TagProps> = (
   };
 
   const renderCloseIcon = () => {
-    if (closable) {
-      return closeIcon ? (
-        <div className={`${prefixCls}-close-icon`} onClick={handleCloseClick}>
-          {closeIcon}
-        </div>
-      ) : (
-        <CloseOutlined className={`${prefixCls}-close-icon`} onClick={handleCloseClick} />
-      );
-    }
-    return null;
+    return closable ? <CloseOutlined onClick={handleCloseClick} /> : null;
   };
 
   const isNeedWave =

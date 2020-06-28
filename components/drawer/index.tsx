@@ -21,7 +21,6 @@ const PlacementTypes = tuple('top', 'right', 'bottom', 'left');
 type placementType = typeof PlacementTypes[number];
 export interface DrawerProps {
   closable?: boolean;
-  closeIcon?: React.ReactNode;
   destroyOnClose?: boolean;
   forceRender?: boolean;
   getContainer?: string | HTMLElement | getContainerFunc | false;
@@ -196,7 +195,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
   }
 
   renderCloseIcon() {
-    const { closable, closeIcon = <CloseOutlined />, prefixCls, onClose } = this.props;
+    const { closable, prefixCls, onClose } = this.props;
     return (
       closable && (
         // eslint-disable-next-line react/button-has-type
@@ -210,7 +209,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
             } as any
           }
         >
-          {closeIcon}
+          <CloseOutlined />
         </button>
       )
     );
@@ -284,7 +283,6 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
                   'zIndex',
                   'style',
                   'closable',
-                  'closeIcon',
                   'destroyOnClose',
                   'drawerStyle',
                   'headerStyle',

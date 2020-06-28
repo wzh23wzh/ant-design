@@ -43,7 +43,6 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
       prefixCls: customizePrefixCls,
       className = '',
       options,
-      optionType,
       buttonStyle,
       disabled,
       children,
@@ -58,14 +57,13 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
     let childrenToRender = children;
     // 如果存在 options, 优先使用
     if (options && options.length > 0) {
-      const optionsPrefixCls = optionType === 'button' ? `${prefixCls}-button` : prefixCls;
       childrenToRender = options.map(option => {
         if (typeof option === 'string') {
           // 此处类型自动推导为 string
           return (
             <Radio
               key={option}
-              prefixCls={optionsPrefixCls}
+              prefixCls={prefixCls}
               disabled={disabled}
               value={option}
               checked={value === option}
@@ -78,7 +76,7 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
         return (
           <Radio
             key={`radio-group-value-options-${option.value}`}
-            prefixCls={optionsPrefixCls}
+            prefixCls={prefixCls}
             disabled={option.disabled || disabled}
             value={option.value}
             checked={value === option.value}

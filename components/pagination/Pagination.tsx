@@ -67,23 +67,22 @@ const Pagination: React.FC<PaginationProps> = ({
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
 
   const getIconsProps = () => {
-    const ellipsis = <span className={`${prefixCls}-item-ellipsis`}>•••</span>;
     let prevIcon = (
-      <button className={`${prefixCls}-item-link`} type="button" tabIndex={-1}>
+      <a className={`${prefixCls}-item-link`}>
         <LeftOutlined />
-      </button>
+      </a>
     );
     let nextIcon = (
-      <button className={`${prefixCls}-item-link`} type="button" tabIndex={-1}>
+      <a className={`${prefixCls}-item-link`}>
         <RightOutlined />
-      </button>
+      </a>
     );
     let jumpPrevIcon = (
       <a className={`${prefixCls}-item-link`}>
         {/* You can use transition effects in the container :) */}
         <div className={`${prefixCls}-item-container`}>
           <DoubleLeftOutlined className={`${prefixCls}-item-link-icon`} />
-          {ellipsis}
+          <span className={`${prefixCls}-item-ellipsis`}>•••</span>
         </div>
       </a>
     );
@@ -92,14 +91,21 @@ const Pagination: React.FC<PaginationProps> = ({
         {/* You can use transition effects in the container :) */}
         <div className={`${prefixCls}-item-container`}>
           <DoubleRightOutlined className={`${prefixCls}-item-link-icon`} />
-          {ellipsis}
+          <span className={`${prefixCls}-item-ellipsis`}>•••</span>
         </div>
       </a>
     );
+
     // change arrows direction in right-to-left direction
     if (direction === 'rtl') {
-      [prevIcon, nextIcon] = [nextIcon, prevIcon];
-      [jumpPrevIcon, jumpNextIcon] = [jumpNextIcon, jumpPrevIcon];
+      let temp: any;
+      temp = prevIcon;
+      prevIcon = nextIcon;
+      nextIcon = temp;
+
+      temp = jumpPrevIcon;
+      jumpPrevIcon = jumpNextIcon;
+      jumpNextIcon = temp;
     }
     return {
       prevIcon,

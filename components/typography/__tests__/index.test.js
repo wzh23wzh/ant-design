@@ -10,7 +10,6 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Typography from '../Typography';
 import { sleep } from '../../../tests/utils';
-import TextArea from '../../input/TextArea';
 
 jest.mock('copy-to-clipboard');
 
@@ -259,7 +258,7 @@ describe('Typography', () => {
           expect(props.style).toEqual(style);
           expect(props.className.includes(className)).toBeTruthy();
 
-          wrapper.find(TextArea).simulate('change', {
+          wrapper.find('TextArea').simulate('change', {
             target: { value: 'Bamboo' },
           });
 
@@ -276,21 +275,21 @@ describe('Typography', () => {
 
       testStep('by key up', wrapper => {
         // Not trigger when inComposition
-        wrapper.find(TextArea).simulate('compositionStart');
-        wrapper.find(TextArea).simulate('keyDown', { keyCode: KeyCode.ENTER });
-        wrapper.find(TextArea).simulate('compositionEnd');
-        wrapper.find(TextArea).simulate('keyUp', { keyCode: KeyCode.ENTER });
+        wrapper.find('TextArea').simulate('compositionStart');
+        wrapper.find('TextArea').simulate('keyDown', { keyCode: KeyCode.ENTER });
+        wrapper.find('TextArea').simulate('compositionEnd');
+        wrapper.find('TextArea').simulate('keyUp', { keyCode: KeyCode.ENTER });
 
         // Now trigger
-        wrapper.find(TextArea).simulate('keyDown', { keyCode: KeyCode.ENTER });
-        wrapper.find(TextArea).simulate('keyUp', { keyCode: KeyCode.ENTER });
+        wrapper.find('TextArea').simulate('keyDown', { keyCode: KeyCode.ENTER });
+        wrapper.find('TextArea').simulate('keyUp', { keyCode: KeyCode.ENTER });
       });
 
       testStep(
         'by esc key',
         wrapper => {
-          wrapper.find(TextArea).simulate('keyDown', { keyCode: KeyCode.ESC });
-          wrapper.find(TextArea).simulate('keyUp', { keyCode: KeyCode.ESC });
+          wrapper.find('TextArea').simulate('keyDown', { keyCode: KeyCode.ESC });
+          wrapper.find('TextArea').simulate('keyUp', { keyCode: KeyCode.ESC });
         },
         onChange => {
           // eslint-disable-next-line jest/no-standalone-expect
@@ -299,7 +298,7 @@ describe('Typography', () => {
       );
 
       testStep('by blur', wrapper => {
-        wrapper.find(TextArea).simulate('blur');
+        wrapper.find('TextArea').simulate('blur');
       });
     });
 

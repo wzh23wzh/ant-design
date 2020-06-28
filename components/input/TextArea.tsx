@@ -1,12 +1,17 @@
 import * as React from 'react';
-import RcTextArea, { TextAreaProps as RcTextAreaProps, ResizableTextArea } from 'rc-textarea';
-import omit from 'omit.js';
 import ClearableLabeledInput from './ClearableLabeledInput';
+import ResizableTextArea, { AutoSizeType } from './ResizableTextArea';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { fixControlledValue, resolveOnChange } from './Input';
 
-export interface TextAreaProps extends RcTextAreaProps {
+export type HTMLTextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
+
+export interface TextAreaProps extends HTMLTextareaProps {
+  prefixCls?: string;
+  autoSize?: boolean | AutoSizeType;
+  onPressEnter?: React.KeyboardEventHandler<HTMLTextAreaElement>;
   allowClear?: boolean;
+  onResize?: (size: { width: number; height: number }) => void;
 }
 
 export interface TextAreaState {
@@ -49,8 +54,8 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     this.resizableTextArea.textArea.blur();
   }
 
-  saveTextArea = (textarea: RcTextArea) => {
-    this.resizableTextArea = textarea?.resizableTextArea;
+  saveTextArea = (resizableTextArea: ResizableTextArea) => {
+    this.resizableTextArea = resizableTextArea;
   };
 
   saveClearableInput = (clearableInput: ClearableLabeledInput) => {
@@ -58,12 +63,25 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   };
 
   handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    this.setValue(e.target.value);
+    this.setValue(e.target.value, () => {
+      this.resizableTextArea.resizeTextarea();
+    });
     resolveOnChange(this.resizableTextArea.textArea, e, this.props.onChange);
+  };
+
+  handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    const { onPressEnter, onKeyDown } = this.props;
+    if (e.keyCode === 13 && onPressEnter) {
+      onPressEnter(e);
+    }
+    if (onKeyDown) {
+      onKeyDown(e);
+    }
   };
 
   handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     this.setValue('', () => {
+      this.resizableTextArea.renderTextArea();
       this.focus();
     });
     resolveOnChange(this.resizableTextArea.textArea, e, this.props.onChange);
@@ -71,9 +89,10 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
 
   renderTextArea = (prefixCls: string) => {
     return (
-      <RcTextArea
-        {...omit(this.props, ['allowClear'])}
+      <ResizableTextArea
+        {...this.props}
         prefixCls={prefixCls}
+        onKeyDown={this.handleKeyDown}
         onChange={this.handleChange}
         ref={this.saveTextArea}
       />

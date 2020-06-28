@@ -19,12 +19,10 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   type?: TabsType;
   size?: SizeType;
   hideAdd?: boolean;
-  centered?: boolean;
-  addIcon?: React.ReactNode;
   onEdit?: (e: React.MouseEvent | React.KeyboardEvent | string, action: 'add' | 'remove') => void;
 }
 
-function Tabs({ type, className, size, onEdit, hideAdd, centered, addIcon, ...props }: TabsProps) {
+function Tabs({ type, className, size, onEdit, hideAdd, ...props }: TabsProps) {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
@@ -36,7 +34,7 @@ function Tabs({ type, className, size, onEdit, hideAdd, centered, addIcon, ...pr
         onEdit?.(editType === 'add' ? event : key!, editType);
       },
       removeIcon: <CloseOutlined />,
-      addIcon: addIcon || <PlusOutlined />,
+      addIcon: <PlusOutlined />,
       showAdd: hideAdd !== true,
     };
   }
@@ -56,7 +54,6 @@ function Tabs({ type, className, size, onEdit, hideAdd, centered, addIcon, ...pr
         [`${prefixCls}-${size}`]: size,
         [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type as string),
         [`${prefixCls}-editable-card`]: type === 'editable-card',
-        [`${prefixCls}-centered`]: centered,
       })}
       editable={editable}
       moreIcon={<EllipsisOutlined />}

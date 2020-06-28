@@ -107,7 +107,6 @@ class ComponentDoc extends React.Component {
         const demoElem = (
           <Demo
             {...demoData}
-            showRiddleButton={showRiddleButton}
             key={demoData.meta.filename}
             utils={utils}
             expand={expandAll}
@@ -138,11 +137,14 @@ class ComponentDoc extends React.Component {
     });
 
     const { title, subtitle, filename } = meta;
+    const articleClassName = classNames({
+      'show-riddle-button': showRiddleButton,
+    });
     const helmetTitle = `${subtitle || ''} ${title[locale] || title} - Ant Design`;
     const contentChild = getMetaDescription(getChildren(content));
 
     return (
-      <article>
+      <article className={articleClassName}>
         <Helmet encodeSpecialCharacters={false}>
           {helmetTitle && <title>{helmetTitle}</title>}
           {helmetTitle && <meta property="og:title" content={helmetTitle} />}

@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-通过配置 `options` 参数来渲染单选框。也可通过 `optionType` 参数来设置 Radio 类型。
+通过配置 `options` 参数来渲染单选框。
 
 ## en-US
 
-Render radios by configuring `options`. Radio type can also be set through the `optionType` parameter.
+Render radios by configuring `options`.
 
 ```jsx
 import { Radio } from 'antd';
@@ -25,7 +25,7 @@ const options = [
 const optionsWithDisabled = [
   { label: 'Apple', value: 'Apple' },
   { label: 'Pear', value: 'Pear' },
-  { label: 'Orange', value: 'Orange', disabled: true },
+  { label: 'Orange', value: 'Orange', disabled: false },
 ];
 
 class App extends React.Component {
@@ -33,7 +33,6 @@ class App extends React.Component {
     value1: 'Apple',
     value2: 'Apple',
     value3: 'Apple',
-    value4: 'Apple',
   };
 
   onChange1 = e => {
@@ -57,36 +56,16 @@ class App extends React.Component {
     });
   };
 
-  onChange4 = e => {
-    console.log('radio4 checked', e.target.value);
-    this.setState({
-      value4: e.target.value,
-    });
-  };
-
   render() {
-    const { value1, value2, value3, value4 } = this.state;
+    const { value1, value2, value3 } = this.state;
     return (
       <>
         <Radio.Group options={plainOptions} onChange={this.onChange1} value={value1} />
-        <br />
-        <Radio.Group options={optionsWithDisabled} onChange={this.onChange2} value={value2} />
-        <br />
-        <br />
-        <Radio.Group
-          options={options}
-          onChange={this.onChange3}
-          value={value3}
-          optionType="button"
-        />
-        <br />
-        <br />
+        <Radio.Group options={options} onChange={this.onChange2} value={value2} />
         <Radio.Group
           options={optionsWithDisabled}
-          onChange={this.onChange4}
-          value={value4}
-          optionType="button"
-          buttonStyle="solid"
+          onChange={this.onChange3}
+          value={value3}
         />
       </>
     );

@@ -125,13 +125,4 @@ describe('Drawer', () => {
     );
     expect(wrapper2.find('button.forceRender').length).toBe(1);
   });
-
-  it('support closeIcon', () => {
-    const wrapper = render(
-      <Drawer visible closable closeIcon={<span>close</span>} width={400} getContainer={false}>
-        Here is content of Drawer
-      </Drawer>,
-    );
-    expect(wrapper).toMatchSnapshot();
-  });
 });

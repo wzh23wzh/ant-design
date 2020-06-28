@@ -16901,11 +16901,9 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-prev config-pagination-disabled"
       title="Previous Page"
     >
-      <button
+      <a
         class="config-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="left"
@@ -16927,7 +16925,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
@@ -16943,11 +16941,9 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-next config-pagination-disabled"
       title="Next Page"
     >
-      <button
+      <a
         class="config-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="right"
@@ -16969,7 +16965,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="config-pagination-options"
@@ -17052,11 +17048,9 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-prev config-pagination-disabled"
       title="Previous Page"
     >
-      <button
+      <a
         class="config-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="left"
@@ -17078,7 +17072,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
@@ -17094,11 +17088,9 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-next config-pagination-disabled"
       title="Next Page"
     >
-      <button
+      <a
         class="config-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="right"
@@ -17120,7 +17112,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="config-pagination-options"
@@ -17208,11 +17200,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-prev config-pagination-disabled"
       title="Previous Page"
     >
-      <button
+      <a
         class="config-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="left"
@@ -17234,7 +17224,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
@@ -17250,11 +17240,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-next config-pagination-disabled"
       title="Next Page"
     >
-      <button
+      <a
         class="config-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="right"
@@ -17276,7 +17264,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="config-pagination-options"
@@ -17359,11 +17347,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-prev config-pagination-disabled"
       title="Previous Page"
     >
-      <button
+      <a
         class="config-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="left"
@@ -17385,7 +17371,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
@@ -17401,11 +17387,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-next config-pagination-disabled"
       title="Next Page"
     >
-      <button
+      <a
         class="config-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="right"
@@ -17427,7 +17411,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="config-pagination-options"
@@ -17515,11 +17499,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       class="config-pagination-prev config-pagination-disabled"
       title="Previous Page"
     >
-      <button
+      <a
         class="config-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="left"
@@ -17541,7 +17523,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
@@ -17557,11 +17539,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       class="config-pagination-next config-pagination-disabled"
       title="Next Page"
     >
-      <button
+      <a
         class="config-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="right"
@@ -17583,7 +17563,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="config-pagination-options"
@@ -17666,11 +17646,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       class="config-pagination-prev config-pagination-disabled"
       title="Previous Page"
     >
-      <button
+      <a
         class="config-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="left"
@@ -17692,7 +17670,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
@@ -17708,11 +17686,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       class="config-pagination-next config-pagination-disabled"
       title="Next Page"
     >
-      <button
+      <a
         class="config-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="right"
@@ -17734,7 +17710,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="config-pagination-options"
@@ -17822,11 +17798,9 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
       class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
-      <button
+      <a
         class="ant-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="left"
@@ -17848,7 +17822,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-0 ant-pagination-disabled ant-pagination-item-disabled"
@@ -17864,11 +17838,9 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
       class="ant-pagination-next ant-pagination-disabled"
       title="Next Page"
     >
-      <button
+      <a
         class="ant-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="right"
@@ -17890,7 +17862,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="ant-pagination-options"
@@ -17973,11 +17945,9 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
       class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
-      <button
+      <a
         class="ant-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="left"
@@ -17999,7 +17969,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-0 ant-pagination-disabled ant-pagination-item-disabled"
@@ -18015,11 +17985,9 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
       class="ant-pagination-next ant-pagination-disabled"
       title="Next Page"
     >
-      <button
+      <a
         class="ant-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="right"
@@ -18041,7 +18009,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="ant-pagination-options"
@@ -18129,11 +18097,9 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
-      <button
+      <a
         class="ant-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="left"
@@ -18155,7 +18121,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-0 ant-pagination-disabled ant-pagination-item-disabled"
@@ -18171,11 +18137,9 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-next ant-pagination-disabled"
       title="Next Page"
     >
-      <button
+      <a
         class="ant-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="right"
@@ -18197,7 +18161,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="ant-pagination-options"
@@ -18280,11 +18244,9 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
-      <button
+      <a
         class="ant-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="left"
@@ -18306,7 +18268,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-0 ant-pagination-disabled ant-pagination-item-disabled"
@@ -18322,11 +18284,9 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-next ant-pagination-disabled"
       title="Next Page"
     >
-      <button
+      <a
         class="ant-pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="right"
@@ -18348,7 +18308,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="ant-pagination-options"
@@ -18436,11 +18396,9 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-prev prefix-Pagination-disabled"
       title="Previous Page"
     >
-      <button
+      <a
         class="prefix-Pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="left"
@@ -18462,7 +18420,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="prefix-Pagination-item prefix-Pagination-item-0 prefix-Pagination-disabled prefix-Pagination-item-disabled"
@@ -18478,11 +18436,9 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-next prefix-Pagination-disabled"
       title="Next Page"
     >
-      <button
+      <a
         class="prefix-Pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="right"
@@ -18504,7 +18460,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="prefix-Pagination-options"
@@ -18587,11 +18543,9 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-prev prefix-Pagination-disabled"
       title="Previous Page"
     >
-      <button
+      <a
         class="prefix-Pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="left"
@@ -18613,7 +18567,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="prefix-Pagination-item prefix-Pagination-item-0 prefix-Pagination-disabled prefix-Pagination-item-disabled"
@@ -18629,11 +18583,9 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-next prefix-Pagination-disabled"
       title="Next Page"
     >
-      <button
+      <a
         class="prefix-Pagination-item-link"
         disabled=""
-        tabindex="-1"
-        type="button"
       >
         <span
           aria-label="right"
@@ -18655,7 +18607,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             />
           </svg>
         </span>
-      </button>
+      </a>
     </li>
     <li
       class="prefix-Pagination-options"

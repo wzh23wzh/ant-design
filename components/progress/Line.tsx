@@ -61,15 +61,14 @@ const Line: React.FC<LineProps> = props => {
   const {
     prefixCls,
     percent,
+    successPercent,
     strokeWidth,
     size,
     strokeColor,
     strokeLinecap,
     children,
     trailColor,
-    success,
   } = props;
-
   let backgroundProps;
   if (strokeColor && typeof strokeColor !== 'string') {
     backgroundProps = handleGradient(strokeColor);
@@ -78,23 +77,10 @@ const Line: React.FC<LineProps> = props => {
       background: strokeColor,
     };
   }
-
   let trailStyle;
   if (trailColor && typeof trailColor === 'string') {
     trailStyle = {
       backgroundColor: trailColor,
-    };
-  }
-
-  let successColor;
-  if (success && 'strokeColor' in success) {
-    successColor = success.strokeColor;
-  }
-
-  let successStyle;
-  if (successColor && typeof successColor === 'string') {
-    successStyle = {
-      backgroundColor: successColor,
     };
   }
   const percentStyle = {
@@ -103,20 +89,11 @@ const Line: React.FC<LineProps> = props => {
     borderRadius: strokeLinecap === 'square' ? 0 : '',
     ...backgroundProps,
   };
-
-  let { successPercent } = props;
-  if (success && 'progress' in success) {
-    successPercent = success.progress;
-  }
-
-  let successPercentStyle = {
+  const successPercentStyle = {
     width: `${validProgress(successPercent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
     borderRadius: strokeLinecap === 'square' ? 0 : '',
   };
-  if (successStyle) {
-    successPercentStyle = { ...successPercentStyle, ...successStyle };
-  }
   const successSegment =
     successPercent !== undefined ? (
       <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
